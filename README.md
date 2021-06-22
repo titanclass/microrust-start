@@ -1,1 +1,5 @@
 # microrust-start
+
+```
+cargo run
+```
