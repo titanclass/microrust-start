@@ -1,33 +1,23 @@
 {
+    /* 
+     * Requires the Rust Language Server (RLS) and Cortex-Debug extensions
+     * https://marketplace.visualstudio.com/items?itemName=rust-lang.rust
+     * https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug
+     */
     "version": "0.2.0",
     "configurations": [
         {
-            "preLaunchTask": "${defaultBuildTask}",
-            "type": "probe-rs-debug",
+            "type": "cortex-debug",
             "request": "launch",
-            "name": "Launch",
-            "cwd": "${workspaceFolder}/nrf-app",
-            "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
-            "chip": "nRF52833_xxAA",
-            "runtimeExecutable": "probe-rs-debugger",
-            "runtimeArgs": [
-                "debug",
-                "--dap"
-            ],
-            "flashing_enabled": true,
-            "reset_after_flashing": true,
-        },
-        {
-            "preLaunchTask": "${defaultBuildTask}",
-            "type": "probe-rs-debug",
-            "request": "attach",
-            "name": "Attach",
-            "server": "127.0.0.1:50001",
-            "cwd": "${workspaceFolder}/nrf-app",
-            "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
-            "chip": "nRF52833_xxAA",
-            "flashing_enabled": true,
-            "reset_after_flashing": true,
+            "name": "Debug (pyocd)",
+            "servertype": "pyocd",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "Cargo Build (debug)",
+            "runToMain": true,
+            "executable": "./target/thumbv7em-none-eabihf/debug/microrust-start",
+            "device": "nRF52833_xxAA",
+            "boardId": "9904360259994e45001a401100000064000000009796990b",
+            "targetId": "nrf52"
         }
     ]
 }
