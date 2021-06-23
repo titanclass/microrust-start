@@ -3,11 +3,7 @@
 
 extern crate nrf52833_hal as hal;
 
-use core::{
-    cell::RefCell,
-    fmt::Write,
-    sync::atomic::{AtomicBool, Ordering},
-};
+use core::{cell::RefCell, fmt::Write};
 use cortex_m::{asm, interrupt::Mutex};
 use cortex_m_rt::entry;
 use hal::{pac::interrupt, prelude::*};
@@ -15,7 +11,6 @@ use panic_probe as _;
 use rtt_target::{rprintln, rtt_init_print};
 
 static GPIOTE: Mutex<RefCell<Option<hal::gpiote::Gpiote>>> = Mutex::new(RefCell::new(None));
-static BUTTON_A_PRESSED: AtomicBool = AtomicBool::new(false);
 
 #[interrupt]
 fn GPIOTE() {
@@ -25,8 +20,6 @@ fn GPIOTE() {
             gpiote.reset_events();
         }
     });
-
-    BUTTON_A_PRESSED.store(true, Ordering::Relaxed);
 }
 
 #[entry]
@@ -119,11 +112,8 @@ fn main() -> ! {
     rtt_init_print!();
 
     loop {
-        let button_a_still_pressed = matches!(button_a.is_low(), Ok(true));
-        if BUTTON_A_PRESSED.compare_exchange(true, false, Ordering::Relaxed, Ordering::Relaxed)
-            == Ok(true)
-            || button_a_still_pressed
-        {
+        let button_a_pressed = matches!(button_a.is_low(), Ok(true));
+        if button_a_pressed {
             for (row, row_led) in row_leds.iter_mut().enumerate() {
                 for (col, col_led) in col_leds.iter_mut().enumerate() {
                     if heart[row][col] == 1 {
