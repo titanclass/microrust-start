@@ -7,7 +7,10 @@ use core::{cell::RefCell, fmt::Write};
 use cortex_m::{asm, interrupt::Mutex};
 use cortex_m_rt::entry;
 use hal::{pac::interrupt, prelude::*};
+#[cfg(debug_assertions)]
 use panic_probe as _;
+#[cfg(not(debug_assertions))]
+use panic_reset as _;
 use rtt_target::{rprintln, rtt_init_print};
 
 static GPIOTE: Mutex<RefCell<Option<hal::gpiote::Gpiote>>> = Mutex::new(RefCell::new(None));
