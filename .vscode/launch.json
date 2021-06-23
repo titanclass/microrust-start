@@ -13,7 +13,9 @@
             "runtimeArgs": [
                 "debug",
                 "--dap"
-            ]
+            ],
+            "flashing_enabled": true,
+            "reset_after_flashing": true,
         },
         {
             "preLaunchTask": "${defaultBuildTask}",
