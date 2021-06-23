@@ -8,7 +8,7 @@ use cortex_m::asm;
 use cortex_m_rt::entry;
 use hal::{
     gpio::{Output, PushPull},
-    prelude::OutputPin,
+    prelude::{InputPin, OutputPin},
 };
 use panic_probe as _;
 use rtt_target::{rprintln, rtt_init_print};
@@ -83,15 +83,19 @@ fn main() -> ! {
             .degrade(),
     ];
 
+    let button_a = p0.p0_14.into_floating_input();
+
     rtt_init_print!();
     loop {
-        for row in 0..5 {
-            for col in 0..5 {
-                if heart[row][col] == 1 {
-                    let _ = row_leds[row].set_high();
-                    let _ = col_leds[col].set_low();
-                    let _ = row_leds[row].set_low();
-                    let _ = col_leds[col].set_high();
+        if let Ok(true) = button_a.is_low() {
+            for row in 0..5 {
+                for col in 0..5 {
+                    if heart[row][col] == 1 {
+                        let _ = row_leds[row].set_high();
+                        let _ = col_leds[col].set_low();
+                        let _ = row_leds[row].set_low();
+                        let _ = col_leds[col].set_high();
+                    }
                 }
             }
         }
