@@ -12,6 +12,14 @@ following concepts:
 
 ## Pre-requisities
 
+For building:
+
+```
+rustup target add thumbv7em-none-eabihf
+```
+
+...and the [GNU Arm toolchain](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads).
+
 For running:
 
 ```
