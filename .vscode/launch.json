@@ -6,8 +6,8 @@
             "type": "probe-rs-debug",
             "request": "launch",
             "name": "Launch",
-            "cwd": "${workspaceFolder}",
-            "program_binary": "target/thumbv7em-none-eabihf/debug/microrust-start",
+            "cwd": "${workspaceFolder}/app",
+            "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
             "runtimeExecutable": "probe-rs-debugger",
             "runtimeArgs": [
@@ -23,8 +23,8 @@
             "request": "attach",
             "name": "Attach",
             "server": "127.0.0.1:50001",
-            "cwd": "${workspaceFolder}",
-            "program_binary": "./target/thumbv7em-none-eabihf/debug/microrust-start",
+            "cwd": "${workspaceFolder}/app",
+            "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
         }
     ]

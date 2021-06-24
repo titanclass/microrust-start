@@ -1,5 +1,15 @@
 # microrust-start
 
+A sample application for teaching embedded development using the BBC micro:bit board. The project demonstrates the
+following concepts:
+
+* PACs, HALs, BSPs...
+* RTT
+* Panick handling
+* Serial communication
+* GPIO and interrupts
+* Testing
+
 ## Pre-requisities
 
 For running:
@@ -26,9 +36,15 @@ cargo install size
 ## Running
 
 ```
-cargo run
+cargo run --target thumbv7em-none-eabihf
 ```
 
 ## Debugging
 
 Launch via the VSCode debugger.
+
+## Testing
+
+```
+cargo test
+```

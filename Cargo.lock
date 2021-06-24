@@ -10,6 +10,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "applib"
+version = "0.1.0"
+
+[[package]]
 name = "as-slice"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -178,6 +182,7 @@ checksum = "62aca2aba2d62b4a7f5b33f3712cb1b0692779a56fb510499d5c0aa594daeaf3"
 name = "microrust-start"
 version = "0.1.0"
 dependencies = [
+ "applib",
  "cortex-m 0.7.2",
  "cortex-m-rt",
  "embedded-hal",

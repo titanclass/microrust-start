@@ -13,38 +13,20 @@
             "type": "process",
             "command": "cargo",
             "args": [
-                "build"
+                "build",
+                "--target",
+                "thumbv7em-none-eabihf"
             ],
             "problemMatcher": [
                 "$rustc"
             ],
+            "options": {
+                "cwd": "app"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "label": "Cargo Build (release)",
-            "type": "process",
-            "command": "cargo",
-            "args": [
-                "build",
-                "--release"
-            ],
-            "problemMatcher": [
-                "$rustc"
-            ],
-            "group": "build"
-        },
-        {
-            "label": "Cargo Clean",
-            "type": "process",
-            "command": "cargo",
-            "args": [
-                "clean"
-            ],
-            "problemMatcher": [],
-            "group": "build"
-        },
+        }
     ]
 }

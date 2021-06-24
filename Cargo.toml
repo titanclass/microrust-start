@@ -1,21 +1,11 @@
-[package]
-name = "microrust-start"
-version = "0.1.0"
-authors = ["huntc <huntchr@gmail.com>"]
-edition = "2018"
+[workspace]
+members = [
+    "applib",
+    "app",
+]
 resolver = "2"
 
-[dependencies]
-cortex-m = "0.7"
-cortex-m-rt = "0.6"
-embedded-hal = { version = "0.2", features = [ "unproven" ] }
-nrf52833-hal = "0.12.2"
-rtt-target = { version = "0.3.1", features = ["cortex-m"] }
-panic-probe = { version = "0.2", features = ["print-rtt"] }
-panic-reset = "0.1"
-
-[profile.dev]
-debug = 1 # default is `true`; not needed if not already overridden
-
 [profile.release]
+codegen-units = 1 # better optimizations
 debug = 1 # default is `false`; using `true` is also OK as the symbols reside on the host platform, not the target
+lto = true # better optimizations
