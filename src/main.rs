@@ -52,14 +52,6 @@ fn main() -> ! {
 
     write!(uarte, "Hello, World!\r\n").unwrap();
 
-    let heart = [
-        [1, 1, 1, 0, 0],
-        [0, 1, 0, 1, 1],
-        [0, 1, 1, 0, 0],
-        [0, 1, 1, 0, 0],
-        [0, 0, 0, 1, 1],
-    ];
-
     let mut row_leds = [
         p0.p0_21
             .into_push_pull_output(hal::gpio::Level::Low)
@@ -114,12 +106,20 @@ fn main() -> ! {
 
     rtt_init_print!();
 
+    let graphic = [
+        [1, 1, 1, 0, 0],
+        [0, 1, 0, 1, 1],
+        [0, 1, 1, 0, 0],
+        [0, 1, 1, 0, 0],
+        [0, 0, 0, 1, 1],
+    ];
+
     loop {
         let button_a_pressed = matches!(button_a.is_low(), Ok(true));
         if button_a_pressed {
             for (row, row_led) in row_leds.iter_mut().enumerate() {
                 for (col, col_led) in col_leds.iter_mut().enumerate() {
-                    if heart[row][col] == 1 {
+                    if graphic[row][col] == 1 {
                         let _ = row_led.set_high();
                         let _ = col_led.set_low();
                         let _ = row_led.set_low();
