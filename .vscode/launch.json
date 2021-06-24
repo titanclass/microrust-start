@@ -6,7 +6,7 @@
             "type": "probe-rs-debug",
             "request": "launch",
             "name": "Launch",
-            "cwd": "${workspaceFolder}/app",
+            "cwd": "${workspaceFolder}/nrf-app",
             "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
             "runtimeExecutable": "probe-rs-debugger",
@@ -23,7 +23,7 @@
             "request": "attach",
             "name": "Attach",
             "server": "127.0.0.1:50001",
-            "cwd": "${workspaceFolder}/app",
+            "cwd": "${workspaceFolder}/nrf-app",
             "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
         }

@@ -115,7 +115,7 @@ fn main() -> ! {
     ];
 
     loop {
-        let button_a_pressed = applib::is_result_ok_and_true(button_a.is_low());
+        let button_a_pressed = app::is_result_ok_and_true(button_a.is_low());
         if button_a_pressed {
             for (row, row_led) in row_leds.iter_mut().enumerate() {
                 for (col, col_led) in col_leds.iter_mut().enumerate() {

@@ -5,7 +5,7 @@ following concepts:
 
 * PACs, HALs, BSPs...
 * RTT
-* Panick handling
+* Panic handling
 * Serial communication
 * GPIO and interrupts
 * Testing

@@ -1,0 +1,20 @@
+[package]
+name = "microrust-start"
+version = "0.1.0"
+authors = ["huntc <huntchr@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.6"
+embedded-hal = { version = "0.2", features = [ "unproven" ] }
+nrf52833-hal = "0.12.2"
+rtt-target = { version = "0.3.1", features = ["cortex-m"] }
+panic-probe = { version = "0.2", features = ["print-rtt"] }
+panic-reset = "0.1"
+
+app = { path = "../app" }
+
+[[bin]]
+name = "microrust-start"
+test = false

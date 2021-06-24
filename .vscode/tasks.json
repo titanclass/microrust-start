@@ -21,7 +21,7 @@
                 "$rustc"
             ],
             "options": {
-                "cwd": "app"
+                "cwd": "nrf-app"
             },
             "group": {
                 "kind": "build",

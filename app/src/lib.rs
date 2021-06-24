@@ -4,7 +4,7 @@
 /// to run in any no_std environment, and can be tested nicely.
 /// ```
 /// let result: Result<bool, &str> = Ok(true);
-/// assert!(applib::is_result_ok_and_true(result));
+/// assert!(app::is_result_ok_and_true(result));
 /// ```
 pub fn is_result_ok_and_true<T>(result: Result<bool, T>) -> bool {
     matches!(result, Ok(true))
