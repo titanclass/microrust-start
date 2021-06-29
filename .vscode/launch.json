@@ -26,6 +26,8 @@
             "cwd": "${workspaceFolder}/nrf-app",
             "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
+            "flashing_enabled": true,
+            "reset_after_flashing": true,
         }
     ]
 }
