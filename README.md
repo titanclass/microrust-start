@@ -15,6 +15,7 @@ following concepts:
 For building:
 
 ```
+rustup update
 rustup target add thumbv7em-none-eabihf
 ```
 
