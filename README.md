@@ -25,10 +25,11 @@ For running:
 cargo install probe-run
 ```
 
-For debugging:
+For debugging (presently using a branch due to bug fixes):
 
 ```
-cargo install --git https://github.com/probe-rs/probe-rs probe-rs-debugger
+cargo install --force --git https://github.com/probe-rs/probe-rs --branch debugger_fixes probe-rs-debugger
+//cargo install --git https://github.com/probe-rs/probe-rs probe-rs-debugger
 ```
 
 ...and then visit https://github.com/probe-rs/vscode#vs-code-probe-rs-debugger for instructions on 
