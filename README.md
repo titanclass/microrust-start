@@ -25,15 +25,21 @@ For running:
 cargo install probe-run
 ```
 
-For debugging (presently using a branch due to bug fixes):
+For debugging:
 
 ```
-cargo install --force --git https://github.com/probe-rs/probe-rs --branch debugger_fixes probe-rs-debugger
-//cargo install --git https://github.com/probe-rs/probe-rs probe-rs-debugger
+cargo install --force --git https://github.com/probe-rs/probe-rs probe-rs-debugger
+
 ```
 
 ...and then visit https://github.com/probe-rs/vscode#vs-code-probe-rs-debugger for instructions on 
-how to install the VSCode plugin.
+how to install the VSCode plugin. Here's an example though given 0.3.4 of the plugin (you may
+wish to check the site to determine the latest version):
+
+```
+wget https://github.com/probe-rs/vscode/releases/download/v0.3.4/probe-rs-debugger-0.3.4.vsix -O /tmp/probe-rs-debugger-0.3.4.vsix
+code --install-extension /tmp/probe-rs-debugger-0.3.4.vsix
+```
 
 You should also install the `CodeLLDB` plugin from the Visual Studio Code market place so that you are
 able to debug unit tests.

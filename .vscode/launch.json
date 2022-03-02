@@ -7,7 +7,7 @@
             "request": "launch",
             "name": "Launch",
             "cwd": "${workspaceFolder}/nrf-app",
-            "program_binary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
+            "programBinary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
             "runtimeExecutable": "probe-rs-debugger",
             "flashing_enabled": true,
