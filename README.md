@@ -44,6 +44,26 @@ code --install-extension /tmp/probe-rs-debugger-0.3.4.vsix
 You should also install the `CodeLLDB` plugin from the Visual Studio Code market place so that you are
 able to debug unit tests.
 
+### WSL
+
+Several extra steps are required to allow direct USB access within a WSL environment.
+
+Follow the instructions at https://devblogs.microsoft.com/commandline/connecting-usb-devices-to-wsl/ to forward through your micro:bit to WSL via the USB/IP protocol. 
+
+The device should appear in the list as something like:
+```
+BUSID  DEVICE                                                        STATE
+9-1    USB Mass Storage Device, USB Serial Device (COM3), USB In...  Not attached
+```
+
+Then setup the udev rules from https://probe.rs/docs/getting-started/probe-setup/. You'll need to restart the udev service first, and run udev commands as sudo: 
+```
+sudo wget https://probe.rs/files/69-probe-rs.rules -O /etc/udev/rules.d/69-probe-rs.rules
+sudo service udev restart
+sudo udevadm control --reload
+sudo udevadm trigger
+```
+
 ## Running
 
 ```
