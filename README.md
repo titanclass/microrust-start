@@ -12,6 +12,36 @@ following concepts:
 
 ## Pre-requisities
 
+### Linux specific
+<details>
+  <summary>Click to show Linux setup instructions!</summary>
+
+  The following instructions are Ubuntu specific but may help with other distros.
+  Make sure you have `libudev-dev` installed so avoid _error: failed to run custom build command for
+  `hidapi v1.3.3`_
+
+  ```
+  sudo apt install libudev-dev
+  ```
+
+  You need the device to attach with read/write permissions without `sudo`. We do this by updating
+  your udev rules. Create a new file `/etc/udev/rules.d/microbit.rules` and add the following:
+
+  ```
+  SUBSYSTEM=="usb", ATTR{idVendor}=="0d28", ATTR{idProduct}=="0204", MODE="0666"
+  ```
+
+  Now reload your udev rules by running:
+
+  ```
+  sudo udevadm control --reload-rules
+  ```
+
+  Finally, reconnect your Micro:bit so udev can reconnect it with the new device permissions. You'll
+  know this worked if you manage to run the commands in the Running section below without a
+  permissions error.
+</details>
+
 For building:
 
 ```
