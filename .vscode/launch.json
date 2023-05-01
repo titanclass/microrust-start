@@ -7,12 +7,19 @@
             "request": "launch",
             "name": "Launch",
             "cwd": "${workspaceFolder}/nrf-app",
-            "programBinary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
             "chip": "nRF52833_xxAA",
             "runtimeExecutable": "probe-rs-debugger",
-            "flashing_enabled": true,
-            "reset_after_flashing": true,
-            "rtt_enabled": true
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "resetAfterFlashing": true,
+                "haltAfterReset": false
+              },
+
+            "coreConfigs": [
+                {
+                  "programBinary": "../target/thumbv7em-none-eabihf/debug/microrust-start",
+                }
+            ]
         }
     ]
 }
